@@ -27,9 +27,22 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+<script>
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+	console.log(response);
+});
+</script>
 <fb:login-button 
   scope="public_profile,email"
   onlogin="checkLoginState();">
 </fb:login-button>
+<script>
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+</script>
 </body>
 </html>
